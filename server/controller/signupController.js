@@ -83,3 +83,8 @@ exports.signin = async (req, res, next) => {
       user,
     });
 };
+
+exports.logout = async (req, res) => {
+  res.clearCookie("token");
+  return res.status(200).json({ success: true, message: "User Logout!" });
+};

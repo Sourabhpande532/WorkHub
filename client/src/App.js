@@ -6,10 +6,18 @@ import Login from "./auth/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PrivateRoute from "./routes/PrivateRoute";
 import Dashboard from "./pages/Dashboard";
-
+import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <BrowserRouter>
+      <Toaster
+        position='top-right'
+        toastOptions={{
+          style: {
+            fontSize: "1.4rem",
+          },
+        }}
+      />
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/register' element={<Register />} />

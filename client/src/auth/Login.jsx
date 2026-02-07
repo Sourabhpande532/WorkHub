@@ -1,6 +1,7 @@
 import { useState } from "react";
 import API from "../api/axios";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -11,8 +12,25 @@ const Login = () => {
     try {
       await API.post("/auth/signin", { email, password });
       navigate("/dashboard");
+      toast.success("Login Successfully");
     } catch (error) {
-      alert("Invalid Credentials");
+      toast.error("Invalid Credentials");
+    }
+  };
+  const guestLoginHandler = async () => {
+    try {
+      const guestEmail = "bob@gmail.com";
+      const guestPassword = "5321";
+      setEmail(guestEmail);
+      setPassword(guestPassword);
+      await API.post("/auth/signin", {
+        email: guestEmail,
+        password: guestPassword,
+      });
+      navigate("/dashboard");
+      toast.success("Login Successfully");
+    } catch (error) {
+      toast.error("Guest login failed");
     }
   };
   return (
@@ -32,6 +50,12 @@ const Login = () => {
         />
         <button className='btn btn-success w-100'>Login</button>
       </form>
+      <button
+        className='btn btn-outline-primary w-100 mt-2'
+        type='button'
+        onClick={guestLoginHandler}>
+        Login as Guest
+      </button>
     </div>
   );
 };
