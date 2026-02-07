@@ -6,7 +6,7 @@ const cookieParser = require("cookie-parser");
 const { query, validationResult } = require("express-validator");
 
 const { databaseInitialization } = require("./config/db.connect");
-const corsOption = { origin: "http://localhost:3000", credential: true };
+const corsOption = { origin: "http://localhost:3000", credentials: true };
 databaseInitialization();
 
 // MIDDLEWARE
