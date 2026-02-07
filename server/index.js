@@ -17,6 +17,7 @@ app.use(cookieParser());
 
 // APP ROUTES
 app.use("/auth", require("./routes/signup"));
+app.use("/posted", require("./routes/job"));
 
 // ERROR HANDLER
 app.use((err, _req, res, next) => {

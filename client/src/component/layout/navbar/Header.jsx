@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <nav className='navbar navbar-expand-lg bg-body-tertiary'>
+    <nav className='navbar navbar-expand-lg text-bg-primary p-3 '>
       <div className='container'>
-        <Link className='navbar-brand'>myWebsite</Link>
+        <Link className='navbar-brand text-light fw-bold'>Intern House</Link>
         <button
           className='navbar-toggler'
           data-bs-target='#navId'
@@ -14,17 +14,17 @@ const Header = () => {
         <div className='collapse navbar-collapse' id='navId'>
           <ul className='navbar-nav'>
             <li className='nav-item'>
-              <Link to='/' className='nav-link'>
-                Home
+              <Link to='/' className='nav-link text-white'>
+                Job Postings
               </Link>
             </li>
             <li className='nav-item'>
-              <Link to='/' className='nav-link'>
-                About
+              <Link to='/' className='nav-link text-light'>
+                Post a Job
               </Link>
             </li>
             <li className='nav-item'>
-              <Link to='' className='nav-link'>
+              <Link to='' className='nav-link text-light'>
                 Contect
               </Link>
             </li>
