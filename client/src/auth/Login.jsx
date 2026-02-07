@@ -11,7 +11,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await API.post("/auth/signin", { email, password });
-      navigate("/dashboard");
+      navigate("/");
       toast.success("Login Successfully");
     } catch (error) {
       toast.error("Invalid Credentials");
@@ -27,7 +27,7 @@ const Login = () => {
         email: guestEmail,
         password: guestPassword,
       });
-      navigate("/dashboard");
+      navigate("/");
       toast.success("Login Successfully");
     } catch (error) {
       toast.error("Guest login failed");

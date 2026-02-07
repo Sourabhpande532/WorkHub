@@ -5,7 +5,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const logout = async () => {
     await API.get("/auth/logout");
-    navigate("/");
+    navigate("/login");
   };
   return (
     <div className='container mt-4'>

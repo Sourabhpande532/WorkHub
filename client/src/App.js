@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PrivateRoute from "./routes/PrivateRoute";
 import Dashboard from "./pages/Dashboard";
 import { Toaster } from "react-hot-toast";
+import Layout from "./component/layout/Layout";
+import { Error } from "./pages/Error";
 function App() {
   return (
     <BrowserRouter>
@@ -19,16 +21,20 @@ function App() {
         }}
       />
       <Routes>
-        <Route path='/' element={<Login />} />
+        {/* PUBLIC ROUTES */}
+        <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        {/* PRIVATE ROUTES */}
         <Route
-          path='/dashboard'
+          path='/'
           element={
             <PrivateRoute>
-              <Dashboard />
+              <Layout />
             </PrivateRoute>
-          }
-        />
+          }>
+          <Route index element={<Dashboard />} />
+          <Route path='*' element={<Error />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
