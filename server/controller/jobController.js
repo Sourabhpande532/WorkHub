@@ -1,7 +1,7 @@
 const Job = require("../model/Jobs");
 const createError = require("../utils/createError");
 
-exports.obtainedJobs = async (req, res) => {
+exports.obtainedJobs = async (req, res, next) => {
   try {
     const jobs = await Job.find();
     if (jobs.length != 0) {
@@ -53,7 +53,7 @@ exports.findJobDetails = async (req, res, next) => {
   }
 };
 
-exports.deleteJobs = async (req, res) => {
+exports.deleteJobs = async (req, res, next) => {
   try {
     await Job.findByIdAndDelete(req.params.id);
     res.status(200).json({ success: true, message: "Deleted successfully" });
