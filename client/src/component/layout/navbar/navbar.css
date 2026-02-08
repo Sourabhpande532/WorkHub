@@ -1,83 +1,77 @@
 .custom-navbar {
-  background-color: #1e40af;
-  padding: 14px 0;
-}
-
-.nav-container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    background-color: #1e40af;
+    padding: 14px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .nav-brand {
-  color: #fff;
-  font-size: 22px;
-  font-weight: bold;
-  text-decoration: none;
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .nav-links {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
 }
 
 .nav-links a {
-  color: #e5e7eb;
-  text-decoration: none;
-  font-weight: 500;
+    color: #e5e7eb;
+    text-decoration: none;
+    font-weight: 500;
 }
 
 .nav-links a:hover {
-  color: #fff;
+    color: #fff;
 }
 
 .auth-btn button {
-  background-color: #ef4444;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 6px;
-  color: white;
-  cursor: pointer;
+    background-color: #ef4444;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
 }
 
 .auth-btn button:hover {
-  background-color: #dc2626;
+    background-color: #dc2626;
 }
 
 /* Mobile */
 #nav-toggle {
-  display: none;
+    display: none;
 }
 
 .nav-toggle-label {
-  display: none;
-  font-size: 26px;
-  color: white;
-  cursor: pointer;
+    display: none;
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
 }
 
 @media (max-width: 768px) {
-  .nav-toggle-label {
-    display: block;
-  }
+    .nav-toggle-label {
+        display: block;
+    }
 
-  .nav-links {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    background-color: #1e40af;
-    width: 100%;
-    flex-direction: column;
-    padding: 20px 0;
-    display: none;
-  }
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #1e40af;
+        width: 100%;
+        flex-direction: column;
+        padding: 20px 0;
+        display: none;
+    }
 
-  #nav-toggle:checked ~ .nav-links {
-    display: flex;
-  }
+    #nav-toggle:checked~.nav-links {
+        display: flex;
+    }
 }

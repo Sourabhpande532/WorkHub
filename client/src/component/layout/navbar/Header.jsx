@@ -20,7 +20,7 @@ const Header = () => {
 
   return (
     <nav className='custom-navbar'>
-      <div className='nav-container'>
+      <div className='container d-flex justify-content-between align-items-center'>
         {/* Brand */}
         <Link to='/' className='nav-brand'>
           Intern House
