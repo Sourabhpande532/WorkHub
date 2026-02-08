@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import API from "../api/axios";
 
 const { createContext, useContext, useState, useEffect } = require("react");
@@ -39,8 +40,31 @@ const JobProvider = ({ children }) => {
     }
   }, [isLoggedIn]);
 
+  const deleteJob = async (id) => {
+    try {
+      await API.delete(`/posted/job/${id}`);
+      toast.success("Deleted Successfully");
+      await fetchJobs();
+    } catch (error) {
+      console.error(error.message);
+      toast.error("Failed to delete");
+    }
+  };
+
+  const addPost = async (data) => {
+    try {
+      await API.post("/posted/job", data);
+      toast.success("Post Added successfully");
+      await fetchJobs();
+    } catch (error) {
+      console.error(error.message);
+      toast.error("Failed to create post");
+    }
+  };
+
   return (
-    <JobContext.Provider value={{ loading, data, isLoggedIn }}>
+    <JobContext.Provider
+      value={{ loading, data, isLoggedIn, deleteJob, addPost }}>
       {children}
     </JobContext.Provider>
   );

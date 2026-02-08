@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { usePortal } from "../context/JobContext";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
-  const { data } = usePortal();
+  const { data, deleteJob } = usePortal();
   const [search, setSearch] = useState("");
+  const navigate = useNavigate();
   const filterJobList = data.filter((job) =>
     job.title.toLowerCase().includes(search.toLowerCase()),
   );
@@ -40,8 +42,18 @@ const Dashboard = () => {
                       <b>Job Type:</b> {job.type}
                     </p>
                     <div className='d-flex gap-4'>
-                      <button className='btn btn-primary'>See Details</button>
-                      <button className='btn btn-danger'>Delete</button>
+                      <button
+                        onClick={() =>
+                          navigate(`/details/${job._id}`, { replace: true })
+                        }
+                        className='btn btn-primary'>
+                        See Details
+                      </button>
+                      <button
+                        onClick={() => deleteJob(job._id)}
+                        className='btn btn-danger'>
+                        Delete
+                      </button>
                     </div>
                   </div>
                 </div>

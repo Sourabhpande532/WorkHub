@@ -10,6 +10,7 @@ import { Toaster } from "react-hot-toast";
 import Layout from "./component/layout/Layout";
 import { Error } from "./pages/Error";
 import { Post } from "./pages/Post";
+import { JobDetails } from "./pages/JobDetails";
 function App() {
   return (
     <BrowserRouter>
@@ -35,6 +36,7 @@ function App() {
           }>
           <Route index element={<Dashboard />} />
           <Route path='post-job' element={<Post />} />
+          <Route path='/details/:id' element={<JobDetails />} />
           <Route path='*' element={<Error />} />
         </Route>
       </Routes>
