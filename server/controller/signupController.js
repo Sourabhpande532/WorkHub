@@ -88,3 +88,15 @@ exports.logout = async (req, res) => {
   res.clearCookie("token");
   return res.status(200).json({ success: true, message: "User Logout!" });
 };
+
+exports.isLoggedIn = async (req, res) => {
+  const token = req.cookies.token;
+  console.log(token);
+  if (!token) return res.status(401).json({ loggedIn: false });
+  try {
+    jwt.verify(token, process.env.JWT_SECRET);
+    return res.status(200).json({ loggedIn: true });
+  } catch {
+    return res.status(401).json({ loggedIn: false });
+  }
+};

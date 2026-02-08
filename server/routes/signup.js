@@ -5,6 +5,7 @@ const {
   registerUser,
   signin,
   logout,
+  isLoggedIn,
 } = require("../controller/signupController");
 
 app.post(
@@ -33,5 +34,6 @@ app.post(
 );
 
 app.get("/logout", logout);
+app.get("/me", isLoggedIn);
 
 module.exports = app;

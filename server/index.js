@@ -6,7 +6,12 @@ const cookieParser = require("cookie-parser");
 const { query, validationResult } = require("express-validator");
 
 const { databaseInitialization } = require("./config/db.connect");
-const corsOption = { origin: "http://localhost:3000", credentials: true };
+
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://work-hub-e51y.vercel.app",
+];
+const corsOption = { origin: allowedOrigins, credentials: true };
 databaseInitialization();
 
 // MIDDLEWARE
